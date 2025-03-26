@@ -1,3 +1,4 @@
+# crystal main.cr -p ./input.txt
 require "option_parser"
 
 class Main

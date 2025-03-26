@@ -1,3 +1,4 @@
+# nim r main.nim -d:release ./input.txt
 import strutils, sequtils
 import std/parseopt
 
