@@ -1,9 +1,19 @@
+# elixir main.exs --path ./input.txt
+import OptionParser
+
 defmodule Main do
-  def main(file_path) do
-    commands = File.read!(file_path) |> String.split("\n", trim: true)
-    
-    IO.puts(calculate_position(commands))
-    IO.puts(calculate_position_with_aim(commands))
+  def main() do
+    {[path: path], _, _} = parse(System.argv(),
+      switches: [path: :string],
+      aliases: [p: :path]
+    )
+
+    commands = File.read!(path) |> String.split("\n", trim: true)
+      
+    IO.puts("""
+    Position: #{calculate_position(commands)}
+    Position with Aim: #{calculate_position_with_aim(commands)}
+    """)
   end
   
   defp calculate_position(commands) do
@@ -37,4 +47,4 @@ defmodule Main do
   end
 end
 
-Main.main("./input.txt")
+Main.main()
