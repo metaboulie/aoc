@@ -1,0 +1,17 @@
+trying to learn languages by solving aoc
+
+someFeelings
+
+- nim
+-- is like python
+
+- elixir
+-- has an elegant syntax for pattern matching
+
+- julia
+-- is convenient for matrix/vector/array
+-- has an inconvenient cli
+
+- crystal
+-- has a great builtin cli parser
+-- has an elegant block syntax
