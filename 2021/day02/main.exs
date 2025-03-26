@@ -1,12 +1,9 @@
-# elixir main.exs --path ./input.txt
+# elixir main.exs ./input.txt
 import OptionParser
 
 defmodule Main do
   def main() do
-    {[path: path], _, _} = parse(System.argv(),
-      switches: [path: :string],
-      aliases: [p: :path]
-    )
+    {_, path, _} = parse(System.argv())
 
     commands = File.read!(path) |> String.split("\n", trim: true)
       
