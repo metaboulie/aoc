@@ -13,5 +13,7 @@ someFeelings
 -- has an inconvenient cli
 
 - crystal
--- has a great builtin cli parser
 -- has an elegant block syntax
+
+- rust
+-- struct with impl is great
