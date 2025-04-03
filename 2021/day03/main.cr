@@ -4,7 +4,7 @@ require "option_parser"
 class Main
   getter path : String = "", lines : Array(String), bit_length : Int32
 
-  def initialize()
+  def initialize
     OptionParser.parse do |parser|
       parser.banner = "Usage: ./main.cr -p INPUT_PATH"
       parser.on("-p PATH", "--path=PATH", "Path to input file") { |path| @path = path }
@@ -62,5 +62,5 @@ class Main
   end
 end
 
-main = Main.new()
+main = Main.new
 puts main.part_one, main.part_two
