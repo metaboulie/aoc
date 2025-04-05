@@ -6,18 +6,18 @@ defmodule Main do
     {_, path, _} = parse(System.argv())
 
     commands = File.read!(path) |> String.split("\n", trim: true)
-      
+
     IO.puts("""
-    Position: #{calculate_position(commands)}
-    Position with Aim: #{calculate_position_with_aim(commands)}
+    Part 1: #{calculate_position(commands)}
+    Part 2: #{calculate_position_with_aim(commands)}
     """)
   end
-  
+
   defp calculate_position(commands) do
     Enum.reduce(commands, {0, 0}, fn command, {depth, width} ->
       [direction, value] = String.split(command, " ")
       value = String.to_integer(value)
-      
+
       case direction do
         "forward" -> {depth, width + value}
         "down" -> {depth + value, width}
@@ -27,12 +27,12 @@ defmodule Main do
     end)
     |> then(fn {depth, width} -> depth * width end)
   end
-  
+
   defp calculate_position_with_aim(commands) do
     Enum.reduce(commands, {0, 0, 0}, fn command, {depth, width, aim} ->
       [direction, value] = String.split(command, " ")
       value = String.to_integer(value)
-      
+
       case direction do
         "forward" -> {depth + aim * value, width + value, aim}
         "down" -> {depth, width, aim + value}
